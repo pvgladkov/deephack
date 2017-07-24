@@ -1,0 +1,6 @@
+sklearn==0.17.1
+numpy==1.13
+pandas
+scipy
+spacy
+nltk
