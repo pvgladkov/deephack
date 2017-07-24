@@ -5,3 +5,4 @@
 data/
 *.pyc
 .ipynb_checkpoints
+.jupyter
