@@ -28,13 +28,14 @@ class BotApplication(object):
         net = Model(saved_args, True)
         config = tf.ConfigProto()
         config.gpu_options.allow_growth = True
-        with tf.Session(config=config) as sess:
-            tf.initialize_all_variables().run()
-            saver = tf.train.Saver(net.save_variables_list())
-            saver.restore(sess, model_path)
+        sess = tf.Session(config=config)
 
-            self.sess = sess
-            self.net = net
+        tf.initialize_all_variables().run(session=sess)
+        saver = tf.train.Saver(net.save_variables_list())
+        saver.restore(sess, model_path)
+
+        self.sess = sess
+        self.net = net
 
         conv_handler = ConversationHandler(
             entry_points=[CommandHandler('start', self.start)],

@@ -85,8 +85,10 @@ def sanitize_text(vocab, text):
     return ''.join(i for i in text if i in vocab)
 
 def initial_state_with_relevance_masking(net, sess, relevance):
-    if relevance <= 0.: return initial_state(net, sess)
-    else: return [initial_state(net, sess), initial_state(net, sess)]
+    if relevance <= 0.:
+        return initial_state(net, sess)
+    else:
+        return [initial_state(net, sess), initial_state(net, sess)]
 
 
 
