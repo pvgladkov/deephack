@@ -8,7 +8,11 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Rege
 
 TOKEN = '266207277:AAFhKUqN_69eNka53ltHP1NT0CJVGXG3xo0'
 
-logger = logging.getLogger()
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.WARN)
+
+logger = logging.getLogger(__name__)
 
 
 class BotApplication(object):
@@ -49,7 +53,8 @@ class BotApplication(object):
         ans = chat_app.chatbot(self.net, self.sess, self.chars, self.vocab, msg)
         self.response(bot, update, ans)
 
-    def start(self, bot, update, args):
+    def start(self, bot, update):
+        logger.debug("chat_id: {}".format(update.message.chat_id))
         self.chat_rooms[update.message.chat_id] = BotApp(self.net, self.sess)
         msg = "chat_id: {}".format(update.message.chat_id)
         self.response(bot, update, msg)
