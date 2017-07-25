@@ -16,7 +16,8 @@ logger = logging.getLogger(__name__)
 
 
 class BotApplication(object):
-    def __init__(self, dispatcher):
+    def __init__(self, dispatcher, sess):
+
         model_path, config_path, vocab_path = get_paths('models/reddit')
 
         with open(config_path) as f:
@@ -26,16 +27,13 @@ class BotApplication(object):
             self.chars, self.vocab = cPickle.load(f)
 
         net = Model(saved_args, True)
-        config = tf.ConfigProto()
-        config.gpu_options.allow_growth = True
-        sess = tf.Session(config=config)
 
-        tf.initialize_all_variables().run(session=sess)
         saver = tf.train.Saver(net.save_variables_list())
         saver.restore(sess, model_path)
 
         self.sess = sess
         self.net = net
+        self.g = tf.get_default_graph()
 
         conv_handler = ConversationHandler(
             entry_points=[CommandHandler('start', self.start)],
@@ -48,17 +46,19 @@ class BotApplication(object):
         self.chat_rooms = {}
 
     def message(self, bot, update):
-        print(update.message.text)
-        chat_app = self.chat_rooms[update.message.chat_id]
-        msg = update.message.text
-        ans = chat_app.chatbot(self.net, self.sess, self.chars, self.vocab, msg)
-        self.response(bot, update, ans)
+        with self.g.as_default():
+            print(update.message.text)
+            chat_app = self.chat_rooms[update.message.chat_id]
+            msg = update.message.text
+            ans = chat_app.chatbot(self.net, self.sess, self.chars, self.vocab, msg)
+            self.response(bot, update, ans)
 
     def start(self, bot, update):
-        logger.debug("chat_id: {}".format(update.message.chat_id))
-        self.chat_rooms[update.message.chat_id] = BotApp(self.net, self.sess)
-        msg = "chat_id: {}".format(update.message.chat_id)
-        self.response(bot, update, msg)
+        with self.g.as_default():
+            logger.debug("chat_id: {}".format(update.message.chat_id))
+            self.chat_rooms[update.message.chat_id] = BotApp(self.net, self.sess)
+            msg = "chat_id: {}".format(update.message.chat_id)
+            self.response(bot, update, msg)
 
     def end(self, bot, update, args):
         self.chat_rooms.pop(update.message.chat_id)
@@ -72,9 +72,13 @@ def error(bot, update, error):
     logger.warn('Update "%s" caused error "%s"' % (update, error))
 
 if __name__ == '__main__':
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
 
-    updater = Updater(TOKEN)
-    dp = updater.dispatcher
-    bot_app = BotApplication(dp)
-    updater.start_polling()
-    updater.idle()
+    with tf.Session(config=config) as sess:
+        tf.initialize_all_variables().run()
+        updater = Updater(TOKEN)
+        dp = updater.dispatcher
+        bot_app = BotApplication(dp, sess)
+        updater.start_polling()
+        updater.idle()
