@@ -15,7 +15,7 @@ def dialogue_iterator(filename, test=False):
     Dialogue = namedtuple('Dialogue', ['context', 'id', 'evaluation', 'thread',
                                        'users'])
     Evaluation = namedtuple('Evaluation', ['Alice', 'Bob'])
-    Thread = namedtuple('Thread', ['text', 'userId'])
+    Thread = namedtuple('Thread', ['text', 'userId', 'time'])
     User = namedtuple('User', ['Alice', 'Bob'])
 
     with open(filename) as input_file:
@@ -23,7 +23,7 @@ def dialogue_iterator(filename, test=False):
             # form the thread list
             th_list = []
             for i in r['thread']:
-                th_list.append(Thread(i['text'], i['userId']))
+                th_list.append(Thread(i['text'], i['userId'], i.get('time')))
 
             # if we're dealing with the test dataset, do not return user types
             # and evaluation scores
