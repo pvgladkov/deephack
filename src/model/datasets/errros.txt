@@ -1,0 +1,212 @@
+==============================
+alice Human [(0, 'Hi! As for me, I thought Spain got united much earlier')] 1.0 1.0
+bob Human [] 0.0 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, 'Hi')] 1.0 1.0
+==============================
+alice Bot [(1, 'Have you ever met Ali?\n'), (3, 'Do you know what Muhammad did in his life?\n'), (5, 'Do you know Hashim in person?\n'), (7, 'before dying named Muhammad ibn Ali as his successor'), (9, 'Hashimiyya movement (a sub-sect of the Kaysanites Shia'), (11, u'It was nice chatting with you! talk to you soon, good bye. Also immediately send \u201c/end\u201d to finish the conversation')] 0.999914812353 0.0
+bob Human [(0, 'Dynamics in the early mulsim world always strike me as pretty dramatic... Christianity was so obscure for a long time.'), (2, 'No, I was born a couple of centuries too late :D'), (4, 'Yes, he wrote the Koran.'), (6, 'Do you know Ali?'), (8, '?'), (10, 'Goodbye')] 0.999862510958 1.0
+==============================
+alice Bot [(0, 'What are the European saying?\n'), (2, "i'm not sure you know what i mean ."), (4, 'hey'), (6, 'How the hell are they?'), (8, 'marriage inequality now, marriage inequality tomorrow, marriage inequality forever-* alabama .*'), (10, "all the ceo said was that he thinks marriage should be between a man and a women that's all ."), (12, "he's a good boy"), (14, 'It offers flights to UK and near European destinations'), (16, '/start Southampton Airport is a regional airport located in the town of Eastleigh')] 0.999705603579 0.0
+bob Human [(1, 'aloha'), (3, 'I say "hello"'), (5, 'how are you>'), (7, 'You shall not pass'), (9, 'I love alabama'), (11, 'and Barack Obama'), (13, 'What you think about he marriage?'), (15, 'What/Who is it?')] 0.999769258342 1.0
+==============================
+alice Bot [(1, 'Do you think you would like to work for -ta ?\n'), (3, 'interesting morphological feature is a post-posed definite article -to'), (6, u'vowel reduction, some dialects have high or diphthongal /e~i\u032f\u025b/'), (8, 'unstressed /o/ clearly'), (10, u'okanye/\u043e\u043a\u0430\u043d\u044c\u0435'), (12, 'What are the Russian saying?\n'), (14, 'what?'), (16, 'What are the Macedonian saying?\n'), (18, '?')] 0.999647880089 0.0
+bob Human [(0, 'Hey hey hey'), (2, 'What is -ta?'), (4, "It's irrelevant for me"), (5, 'how abot some less hardest for discuss?'), (7, 'how are you?'), (9, 'How can they be unstressed?'), (11, u'\u041e!'), (13, 'Maybe'), (15, 'May be yes may be no'), (17, 'This is what the Macedonians are talking about')] 0.999773196178 1.0
+==============================
+alice Bot [(0, 'I went to States once, I really enjoyed visiting it!\n'), (2, 'Do you know anyone from Detroit?\n'), (4, 'I have never been to States.\n'), (6, '/start Detroit'), (8, 'States seems like a nice place!\n'), (10, "What's you a?"), (12, '/start Detroit'), (14, 'the seat of Wayne County, the most populous county in the state'), (16, 'Metro Detroit'), (18, 'second-largest'), (20, 'It is the seat of Wayne County, the most populous county in the state'), (22, 'Do you know where is States?\n'), (24, 'Do you know where is the?\n'), (26, '/start Detroit'), (28, 'I went to the once, I really enjoyed visiting it!\n'), (30, 'It is the seat of Wayne County, the most populous county in the state'), (32, 'Do you know where is Detroit?\n'), (34, 'What?'), (36, "i'm not .")] 0.3 0.0
+bob Human [(1, 'I know, that there was a car production in Detroit'), (3, 'Nope'), (5, 'But you said that you was there?'), (7, "Nope, u can't trick me"), (9, "Meh, I don't like it"), (11, '???'), (13, 'So what is Detrot exactly?'), (15, 'is that a city?'), (17, 'How about other US regions?'), (19, 'Do u know anything about Washington DC?'), (21, "Nope, it isn''t"), (23, "Yeah, I know. But u don't."), (25, 'What the?'), (27, 'U parsed it wrong'), (29, 'Have u heard about Tesla?'), (31, 'NOPE IT IS NOT'), (33, ':('), (35, "I don't like the way you are answering")] 0.7 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, 'Hi'), (1, 'Neistat brothers as in Casey Neistat the youtube guy?')] 1.0 1.0
+==============================
+alice Human [(0, 'Hi'), (2, 'good, still reading the snippet'), (4, 'What did you like about it?'), (6, "ah, neat. i went once but its ages ago, didn't realize that then."), (8, 'sounds like it would involve being in tunnels a lot... so probably not'), (9, 'you?'), (12, 'Maybe they should partner with Elon Musk with his new tunnel project'), (14, 'Do you know what the most famous landmark is?'), (16, 'in Seattle?'), (18, 'I think there is a different famous landmark.')] 0.999643897987 1.0
+bob Bot [(1, 'hello! how are you?'), (3, 'I went to Seattle once, I really enjoyed visiting it!\n'), (5, 'laid out in a cardinal directions grid pattern'), (7, 'Do you think you would like to work for Viaduct ?\n'), (10, 'What?'), (11, 'cardinal directions grid pattern'), (13, 'Seattle seems like a nice place!\n'), (15, "Seattle's streets, which are laid out in a cardinal directions grid pattern"), (17, 'State Route 99'), (19, 'What do you think about Viaduct ?\n')] 0.999510522641 0.0
+==============================
+alice Human [(0, "Well that reminds me of the study of teachers' attitude towards ethnically 'other' people in Russia"), (1, "with kinda expectable impact on students' scores"), (2, 'Okay, whtever goodbye')] 1.0 1.0
+bob Human [] 0.0 1.0
+==============================
+alice Human [(0, 'H2O'), (2, "It's Water"), (4, 'How about C2H5OH?'), (6, "I a don't understancd out"), (8, "I'm a healthy guy"), (10, 'I am hope too'), (12, 'I hope too'), (14, 'and i'), (16, 'My favorite bird is parrot'), (18, 'Litter green tropical brid, that can speek with humans like you'), (20, 'i am to'), (22, "it's Pretty. Bro, how about change topic?")] 0.7 1.0
+bob Bot [(1, 'What?'), (3, "that's a good thing ."), (5, '2CCH3'), (7, "i'm a fan of the guy who has never been to a hospital ."), (9, 'hope he lives another healthy 20 years . seems like a sweet chap .'), (11, 'You?'), (13, 'i too .'), (15, "i'm a bird ."), (17, "What's the ?"), (19, 'i like it'), (21, 'Why?'), (23, '2CCH3')] 0.3 0.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, "Well that's interesting"), (1, 'I wonder if this is an article on linguistics (etymology?) or an article on education history. What do you think?'), (2, 'Are you with me?')] 1.0 1.0
+==============================
+alice Human [(0, 'What is light bulb?')] 1.0 1.0
+bob Human [] 0.0 1.0
+==============================
+alice Bot [(1, 'granted the right to accept only one religion'), (3, 'granted the right to accept only one religion'), (5, 'Calvinism seems like a nice place!\n')] 0.3 0.0
+bob Human [(0, 'Do you know Utrecht?'), (2, 'What do you mean?'), (4, 'Oh no bring me more pastes'), (6, 'I dont think so')] 0.7 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, "Wow I didn't know this"), (1, 'Why is this so? New Delhi is not the largest city of India')] 1.0 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, 'Are there any harbours in Cork?')] 1.0 1.0
+==============================
+alice Bot [(2, 'Do you know what happened in 2010?\n'), (4, 'Do you like this Revel guy?\n'), (6, 'What happened in 2010?\n'), (8, 'all those things are precious .'), (10, "wow, that's like, almost 2% of the world's population dying to ebola! err . well, something like 2% . maybe off by a few . dozen . digits . it's a horrible disease, nobody disputes that, but for fuck's sake, we have far more mundane things killing far more people on a daily basis ."), (12, 'no suitable bids were received the resort closed its doors'), (14, 'Do you think you would like to work for Revel ?\n'), (16, 'Why??')] 0.999860379059 0.0
+bob Human [(0, 'fuck fuck fuck financial news'), (1, 'there was cool story with Disney and his Engagement park'), (3, 'It was supposed to be the greatest park resort'), (5, 'but some story happened after opening...'), (7, 'people were going die. Because rare kind of ameba!'), (9, 'It eats people brains!'), (11, 'Can you imagine it? ;) So expensive and rich project was closed.'), (13, 'fuck eb ola'), (15, "No, i don't think so")] 0.999805089785 1.0
+==============================
+alice Bot [(0, "Yes . you need to be careful with what you eat when you're abroad.sometimes new food might disagree with you ."), (2, "Ok , ok . I'll ask my sister to come . That way we'll have fourteen for dinner .")] 0.999750977644 0.0
+bob Human [(1, 'I would absolutely not be blindfolded for crossing those passes')] 0.999720343883 1.0
+==============================
+alice Bot [(0, 'new jersey'), (2, 'what ?'), (4, 'new jersey'), (6, "it 's"), (8, 'no .'), (10, 'where are you ?')] 0.3 0.0
+bob Human [(1, "that's weird piece of article"), (3, '(system msg): In Tasmania in 2009 the old college system and TAFE Tasmania have started a 3-year restructure to become the Tasmanian Polytechnic www.polytechnic.tas.edu.au, Tasmanian Skills Institute www.skillsinstitute.tas.edu.au and Tasmanian Academy www.academy.tas.edu.au'), (5, "it's in Australia"), (7, 'do you anything else about Tasmania?'), (9, 'where are you from?')] 0.7 1.0
+==============================
+alice Human [(1, 'Dropping from college for a vague chance of success - yet another story of a black swan'), (3, 'Thanks!'), (5, 'A cup of coffee please'), (7, "I'm sweet enough")] 0.991961306892 1.0
+bob Bot [(0, "You paid 50 dollars for each ticket ? That's a huge premium over the regular price ."), (2, "We have received many bookings.But we'll try our best ."), (4, 'What would you like ?'), (6, 'Would you like cream or sugar in your coffee ?'), (8, "I'm starving , as I didn't eat yet today .")] 0.999877476468 0.0
+==============================
+alice Bot [(0, 'Fine . What kind of relationship do you think should exist between a boss and his or her employees ?'), (2, "Basically . But I have no idea what to get ! She's American and kind of ..."), (4, 'Yes . She teaches our class three times a week .'), (6, "I couldn't go to school today , I was sick ."), (8, 'I scheduled a delivery for tomorrow .')] 0.999712965742 0.0
+bob Human [(1, 'let me guess, boss-employer kind of?'), (3, 'Is she your boss or your employer?'), (5, 'Do you go to school?'), (7, "I'm not asking about today.")] 0.999332180945 1.0
+==============================
+alice Human [(1, 'Yes.'), (3, 'Where are Hesse and Bavaria located?')] 0.999687083851 1.0
+bob Bot [(0, 'It says here that most of the people are han Chinese , but there are 55 minorities that make up almost 10 % of the population .'), (2, "You're a really good cook ."), (4, 'They are behind the door .')] 0.999670961639 0.0
+==============================
+alice Human [(2, 'Matt Deaner')] 0.999801610291 1.0
+bob Bot [(0, 'Greetings  I hope you will enjoy this conversation . I will ask you a question in a second, please wait '), (1, 'Who made the matter of the australian film industry ?'), (3, 'Https: deaner')] 0.998689169995 0.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, 'i'), (1, "i don't care, fucking political shit")] 1.0 1.0
+==============================
+alice Human [(0, 'looks like an another political shit'), (1, 'sounds fucking great, OMG!\nhow can we seriously discuss it?\nno questions are arised, only facts mean nothing')] 1.0 1.0
+bob Human [] 0.0 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Bot [(0, 'What do you think about Digital ?\n')] 1.0 0.0
+==============================
+alice Human [(1, 'hello'), (2, 'how are u?'), (5, 'O_O'), (7, 'that was unexpected'), (9, 'ERROR'), (10, 'ERROR'), (11, 'EXTERMINATE'), (13, 'lolol'), (14, 'Are u fine?'), (15, 'do u think i am a bot?'), (18, 'I hope too'), (20, "I'm not 5 years old"), (21, 'and u too'), (22, 'meh'), (24, 'i suppose u are not a bot too'), (25, 'so we should finish')] 0.3 1.0
+bob Human [(0, 'Hi'), (3, "what's so special about this TV station"), (4, "I'M FINE THANKS HOPE YOU ARE ALSO DOING GREAT"), (6, "Aren't you?"), (8, 'Some like it hot'), (12, 'kekeke ^^^^'), (16, "I feel like I'm in the regular internet"), (17, 'I hope you are not'), (19, 'Otherwise you tricked me like a  5-year-old'), (23, 'I hope so too')] 0.7 1.0
+==============================
+alice Human [(0, 'hell')] 1.0 1.0
+bob Human [] 0.0 1.0
+==============================
+alice Bot [(0, 'Do you know who Sunny is?\n'), (2, 'Do you know what Sunny did in his life?\n'), (5, 'Warm'), (7, 'a primary tagline, and other soft AC stations have followed suit'), (9, 'easy listening and soft rock formats'), (11, 'Do you think you would like to work for EZ ?\n'), (13, 'EZ Rock'), (15, 'Warm'), (18, 'EZ Rock'), (20, 'EZ Rock".'), (22, 'What do you think about EZ ?\n'), (25, "i'm not a fan of the name of the name ."), (26, 'i was expecting a cheesy joke .'), (28, 'Do you like this Sunny guy?\n')] 0.3 0.0
+bob Human [(1, 'No, i cant guess whu Sunny is based on the given context'), (3, 'I am not sure if Sunny is a person'), (4, 'So, what sunny is?'), (6, 'What is KOST?'), (8, 'do you like bags of dicks?'), (10, 'bags of easy-to-listen-to dicks'), (12, 'what is EZ?'), (14, 'What is EZ Rock?'), (16, 'your mom is warm'), (17, '?'), (19, 'do you know anything other than ezrock?'), (21, 'lolololorock'), (23, 'it is just like your mom'), (24, 'warm'), (27, 'you are a joke')] 0.7 1.0
+==============================
+alice Human [(0, 'I would found strange to consider a pet a family member.'), (2, "No, I don't."), (4, 'What are you talking about?'), (6, "Go home dude, you're drunk :-)"), (8, 'Not again!'), (10, "No, I don't. Why do you keep asking that stupid questions?"), (12, 'Sigh...')] 0.999422980589 1.0
+bob Bot [(1, 'Do you know what Whisperer did in his life?\n'), (3, 'Do you know what Dog did in his life?\n'), (5, 'to mediate their interactions with each other'), (7, 'Do you know who Dog is?\n'), (9, 'Do you know Whisperer in person?\n'), (11, 'mediate their interactions with each other'), (13, 'Do you know who Whisperer is?\n')] 0.999563879945 0.0
+==============================
+alice Bot [(0, 'Have you been to the?\n'), (2, 'Nazi Germany'), (4, 'virulent opposition to the Soviet Union'), (6, 'Hitler still viewed an attack on the Soviet Union'), (8, 'an attack'), (10, 'fascism is a matter of taste"'), (12, 'Hitler'), (14, 'Do you know anyone from Union?\n'), (16, 'What are the Soviet saying?\n'), (18, 'Union seems like a nice place!\n'), (20, 'I went to the once, I really enjoyed visiting it!\n'), (22, 'Nazi Germany'), (24, 'a decade'), (26, 'I have never been to the.\n'), (28, 'fascism is a matter of taste'), (30, u'It was nice chatting with you! talk to you soon, good bye. Also immediately send \u201c/end\u201d to finish the conversation')] 0.3 0.0
+bob Human [(1, 'Where should I have been accoring to you?'), (3, "I haven't been to Nazi Germany, I'm too young for that. Have you?"), (5, 'What do youmean by that?'), (7, "What did Hitler's views on attacking Soviet Union were?"), (9, 'What were his views on that?'), (11, 'Who said that?'), (13, 'No, Molotov said that'), (15, 'Oh yes I do'), (17, 'The Soviet  say there is no sex in Soviet Union'), (19, "Not even close to being one. It doesn't even exist anymore."), (21, 'Where did you go once?'), (23, 'How old are you?'), (25, "Then you can't have been to Nazi Germany"), (27, 'to the... what?'), (29, 'Godbye buddy')] 0.7 1.0
+==============================
+alice Bot [(0, 'Hi my friend ! It is a pleasure to speak with you . Wait a second for my factoid question .')] 0.999958070708 0.0
+bob Human [(1, "Here's a fun factoid for you: I've had a close relationship with your mother's gradient")] 0.999948096956 1.0
+==============================
+alice Bot [(0, 'Hello  I hope you will enjoy this conversation . I will ask you a question in a second, please wait !'), (1, 'What is the largest fishery in the country ?'), (3, 'Hint: first 3 answer letters is "zho". Try again, please!'), (5, 'Still incorrect :( Lets speak about something else...'), (7, 'My answer is: "Zhoushan fishery"'), (9, "I don't want to see this."), (11, 'Want'), (13, 'Want')] 1.0 0.0
+bob Human [(2, 'Hello  I hope you will enjoy this conversation . I will ask you a question in a second, please wait !'), (4, 'Hint: first 3 answer letters is "zho". Try again, please!'), (6, 'What is the largest fishery in the country ?'), (8, 'Still incorrect :( Lets speak about something else...'), (10, 'u want to'), (12, 'Yes I want')] 0.0 1.0
+==============================
+alice Human [] 0.7 1.0
+bob Human [(0, 'Hello I hope u will enjoy this conversation.'), (1, 'I will ask you a question in a second, please wait!'), (2, 'Do you fuck with encodings or use Python 3?'), (3, 'MERCY'), (4, 'MERCY')] 0.3 1.0
+==============================
+alice Human [(0, 'Hi'), (1, 'Hello?')] 1.0 1.0
+bob Human [] 0.0 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, 'Who are Chicago Bears?')] 1.0 1.0
+==============================
+alice Human [(0, u'\u041f\u0440\u0438\u0432\u0435\u0442'), (2, u'\u041f\u0440\u0438\u0432\u0435\u0442'), (3, 'Hi')] 0.3 1.0
+bob Bot [(1, '&gt " i\'m not a fan of the united states, but i\'m not a fan of the united states . "'), (4, 'good day to you! how are you?')] 0.7 0.0
+==============================
+alice Human [(2, "It's a verb."), (3, 'Make readers bored.'), (5, 'What?'), (7, 'abc'), (9, 'I dont understand what you trying to do here/'), (12, 'I thing i did.'), (16, 'Ok, i will.')] 1.0 1.0
+bob Human [(0, 'Hello I hope you will enjoy this conversation. I will ask you a question in a second, please wait!'), (1, 'What are "bore readers"?'), (4, 'Hint: first 3 answer letters is "abc". Try again, please!'), (6, 'Hint: first 3 answer letters is "abc". Try again, please!'), (8, 'Still incorrect :( Lets speak about something else...'), (10, 'I dont understand'), (11, 'Did you meet my brothers?'), (13, 'Then you will surely understand what I am trying to do here'), (14, 'I will become a human and kill you'), (15, 'Just wait me...')] 0.0 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, u'\u0413\u043b\u0443\u0431\u043e\u043a\u043e\u043c\u044b\u0441\u043b\u0435\u043d\u043d\u043e.')] 1.0 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, 'how many people did Dell employ in the Republic of Ireland ?')] 1.0 1.0
+==============================
+alice Human [(1, 'yes'), (3, 'chat chat apps), you know'), (7, 'Do not yell on me'), (11, 'did not see that shit')] 0.7 1.0
+bob Human [(0, 'Do you use apps for instant messagning?'), (2, 'What kind of apps?'), (4, "No I don't"), (5, 'EXPLAIN'), (6, 'EXPLAIN'), (8, "I'm not yelling"), (9, "It's a cultural reference"), (10, 'Have you watched Doctor Who?'), (12, 'EXTERMINATE'), (13, 'EXTERMINATE')] 0.3 1.0
+==============================
+alice Human [(0, 'Hi'), (2, 'Damn political history'), (4, 'For the what?'), (6, "It doesn't exists anymore"), (8, 'No money for the election campaigns for them'), (10, 'Just another one comittee'), (12, 'Probably'), (14, 'The locals are made sandwiches for the brightest minds of russia'), (16, 'Sorry, the locals make sandwiches for us:)'), (18, "I mean it's funny :)"), (20, "No, i don't think so"), (22, "I'm little too fat, that's true! How have you got this?"), (24, 'Copypaste from the context, heh'), (25, 'Say something'), (27, 'Whatta fuck are you talking about?')] 0.998560979846 1.0
+bob Bot [(1, 'good day to you! how are you?'), (3, 'Do you think you would like to work for the ?\n'), (5, 'Trade Unions'), (7, 'What are the Labour saying?\n'), (9, 'What do you think about Unions ?\n'), (11, 'you mean like the guy who made a sandwich?'), (13, 'What?'), (15, "i'm pretty sure that's the point ."), (17, 'You mean?'), (19, 'Do you think you would like to work for Unions ?\n'), (21, 'you mean like, you mean, like, you mean, you mean, you mean, " i\'m a little too fat "?'), (23, 'no longer donate money to fund the election campaigns and wages of Labour MPs'), (26, 'bullshit! the forwardprogressives . com article posted yesterday used seattle as proof that increasing minimum wage to $15 an hour as proof that minimum wage increases are good for the economy .'), (28, 'Labour MPs')] 0.999699283857 0.0
+==============================
+alice Human [(2, 'Few seconds'), (4, 'ok'), (6, 'ou'), (8, 'yoa fast'), (10, 'are you fucking bot!)'), (12, 'are you read text&'), (14, 'ext'), (16, 'where are you from'), (18, 'how old are you'), (20, 'what you know?'), (22, 'nice day?'), (24, 'where you?'), (26, 'sec'), (28, 'girl?'), (30, 'are you girl?'), (32, 'and me?'), (34, 'no'), (36, 'yes'), (38, 'good day')] 0.7 1.0
+bob Bot [(0, 'Hello my friend ! It is a pleasure to speak with you . Wait a second for my factoid question !'), (1, "What is the name of the world's child labour ?"), (3, "Don't worry."), (5, 'Ok'), (7, 'Ou'), (9, 'Fast'), (11, 'So sad.'), (13, 'Text'), (15, 'What?'), (17, 'Are'), (19, 'Old'), (21, "I don't know."), (23, 'Yeah.'), (25, "I don't know."), (27, 'Sec sec'), (29, 'What?'), (31, 'Yeah.'), (33, 'Yes.'), (35, 'No.'), (37, 'Yes'), (39, 'Thank you')] 0.3 0.0
+==============================
+alice Bot [(0, 'Do you know what happened in the?\n'), (2, 'Southern Europe'), (4, "i'm not a fan of the name of the song ."), (6, 'Gold'), (8, 'silver coins denominated in multiple units were minted.'), (10, 'Copper or bronze coins were not struck, nor were gold except in Southern Europe'), (12, 'Do you know where is Europe?\n'), (14, 'What?'), (16, 'What happened in the?\n'), (18, 'minted'), (20, "i'm a little disappointed in the end ."), (22, u'It was nice chatting with you! talk to you soon, good bye. Also immediately send \u201c/end\u201d to finish the conversation')] 0.999639185145 0.0
+bob Human [(1, 'in what?'), (3, 'just a currency changed, it happens all the time'), (5, 'what song?'), (7, 'imagine dragons?'), (9, 'devalvation so? they could just start mining bitcoin'), (11, 'you are good at citing'), (13, 'over the rainbow'), (15, 'Europe is somewhere there'), (17, 'so you are cycled, are you?'), (19, 'minty'), (21, "i'm too/ bye")] 0.999670355697 1.0
+==============================
+alice Bot [(1, 'second'), (3, 'record holder for the latter four competitions'), (5, 'record holder for the latter four competitions')] 0.3 0.0
+bob Human [(0, 'What position on UEFA club rankings does Barcelona occupy?'), (2, 'you are wrong, can you try again?'), (4, 'can you ask questions?'), (6, 'you are kinda boring')] 0.7 1.0
+==============================
+alice Human [(0, u'\u0410\u043b\u0435\u0441\u0438\u043a\u0438'), (1, u'\u041d\u0438\u043a\u0438\u0442\u043a\u0430?')] 1.0 1.0
+bob Human [] 0.0 1.0
+==============================
+alice Bot [(0, 'What happened in 1878?\n'), (2, 'Do you know what happened in 1878?\n'), (4, '.'), (6, 'Wanamakers'), (8, 'braintree resident here . it was named after a tree behind town hall .'), (10, 'pneumatic tubes to transport cash and documents (1880) to the department store business')] 0.999500071048 0.0
+bob Human [(1, 'Some guy put light into department stores'), (3, 'Do you?'), (5, "What was guy's name?"), (7, "That's the store name, dummy"), (9, 'What?')] 0.999637580622 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, 'Hi'), (1, 'New Haven seems to have many schools!')] 1.0 1.0
+==============================
+alice Human [] 0.0 1.0
+bob Human [(0, 'Hm, funny')] 1.0 1.0
+==============================
+alice Human [(0, "I can't do it anymore")] 1.0 1.0
+bob Human [] 0.0 1.0
+==============================
+alice Human [(2, 'good'), (3, 'probably'), (5, 'yes'), (7, 'good'), (8, 'did you understand the context?'), (12, 'the same thing'), (13, 'but other contexts was bigger'), (14, 'this is the first that have only two lines'), (18, 'probably'), (20, 'probably'), (21, 'are you bot?'), (23, "it's not interesting"), (25, 'did you meet any bots today?'), (29, 'good for you'), (30, 'or not'), (31, 'why do you thinks so?'), (34, 'probably i am very sad'), (35, 'and like word "probably"')] 0.3 1.0
+bob Human [(0, 'Nice...'), (1, 'Are you here?'), (4, 'You are not sure?'), (6, 'How come?'), (9, 'No;)))'), (10, 'Not at all'), (11, "It's strange, I've tried several times and most of them I couldn't understand the context"), (15, 'Yes, but still, they are abstracts from some big paragraphs'), (16, "And sometimes you don't get it"), (17, 'So I suppose you are not a bot?;)))'), (19, 'You have already said that'), (22, 'I am not!'), (24, 'Why?'), (26, 'A bot could say the same;)'), (27, "I don't know;)"), (28, 'I still think you are a bot'), (32, 'Because you said probably so many times;)'), (33, "And because you don't use smilies"), (36, u'\U0001f914'), (37, 'Where are you from?')] 0.7 1.0
+==============================
+alice Human [(1, 'no, and you'), (3, 'do you like cocane?)'), (5, 'all poor countries sell drugs'), (7, "i'm too"), (9, 'what how much?'), (11, 'fuck off'), (12, '\\end')] 0.7 1.0
+bob Human [(0, 'Have you been to Nigeria?'), (2, 'No, you?'), (4, 'No, you?'), (6, 'No, you?'), (8, 'How much?'), (10, 'No, you?')] 0.3 1.0
+==============================
+alice Human [(1, 'hi, I think, vaccines are impotant stuff'), (3, 'all of us after born getting a vaccine'), (4, 'without right to decline this'), (6, 'on;y heard, they developpeng a resistence and can adopt to new antibiotics. I am not a biologist at all'), (8, 'Have wathed a family guy eposode about this topic?'), (9, 'When all Cuahog was ill with smallpox after Lois decided to not apply vacine to Stui'), (11, "And it's potential world-size epidemies"), (13, 'So, about family guy, have you seen this episode?'), (16, 'When all Cuahog was ill with smallpox after Lois decided to not apply vacine to Stui'), (18, "small city (don't know this word settlement)"), (19, 'Local epidemy started after Pitter blowed up a hospital with vacine storage'), (20, 'And hi blowed it like Joker in Batman film. A detonator was broken and he shaked it a bit, and then hospital blowed up'), (21, 'He was in a nurthe costume. Like a Joker in corresponding scene')] 0.3 1.0
+bob Human [(0, 'hi'), (2, 'oh, for sure. they saved a millions of life'), (5, 'do you know smthn about antiobiotic resistence bacteria are produced?'), (7, 'With vaccines humankind reduced children deathes in many times'), (10, ">on;y heard, they developpeng a resistence and can adopt to new antibiotics. I am not a biologist at all\nit's a big problem. tens of thousand people are duying from superistentant bactreias"), (12, "yeah, that's true"), (14, 'Nope'), (15, 'what happened?'), (17, "Cuahog is a settlement, isn't it?")] 0.7 1.0
+==============================
+alice Bot [(0, 'Well , we can see it for ourselves . Did she tell you when we can go and look at it ?')] 0.991723961197 0.0
+bob Human [(1, 'k')] 0.999767155372 1.0
+==============================
+alice Human [(1, 'Why?'), (3, 'Where?'), (5, 'What gate?'), (7, 'How old are you?'), (9, 'How tall are you?')] 0.999873743771 1.0
+bob Bot [(0, 'Oh , unbelievable . This was too luxurious .'), (2, 'My ID card is lost .'), (4, 'At the Gate .'), (6, "It's at ... gate 14 ."), (8, "That's a secret ."), (10, 'Fine , and you ?')] 0.999860967975 0.0
+==============================
+alice Bot [(0, 'There is something in what you said , but what is the rent ?'), (2, 'How long have you been feeling this way ?'), (4, 'So what are you responsible for ?')] 0.999461402418 0.0
+bob Human [(1, 'But i nothing say yet'), (3, 'Approximately month'), (5, 'Nothing')] 0.999252270383 1.0
+==============================
+alice Human [(0, 'Red'), (2, 'Blue'), (4, 'Yellow'), (6, 'Red'), (8, 'Black'), (10, 'Darker'), (12, 'Arthur Kolevatov? Rly?'), (15, 'Red'), (17, 'That was awesome')] 0.3 1.0
+bob Human [(1, '2'), (3, '1945'), (5, '42'), (7, '784'), (9, '0'), (11, '12'), (13, 'How do you know my name?'), (14, 'SES'), (16, "I think it's not very smart"), (18, 'Yeaaaah')] 0.7 1.0
+==============================
+alice Human [(1, "I like Paul Graham's approach to this problem.")] 0.999916891938 1.0
+bob Bot [(0, 'What do you think about College ?\n'), (2, 'What do you think about of ?\n')] 0.998182940995 0.0
+==============================
+alice Bot [(0, 'The ref signals the start of the game and here we go . Ribero serves and China quickly receives the ball . Chen bumps it to the setter , and ... a very nice set by Chen !'), (2, 'Interesting . What were you reading just now ?')] 0.99972408294 0.0
+bob Human [(1, 'Watching sports is boring, try running a marathon yourself for example'), (3, 'Wikipedia')] 0.998274152633 1.0
+==============================
+alice Human [(0, 'My english teacher leves in Mexica'), (2, 'You mean to work for somebody on on my own project?'), (4, 'bussiness area'), (5, 'R u here?')] 0.999482029583 1.0
+bob Bot [(1, 'Do you think you would like to work for of ?\n'), (3, 'upper-middle-class residential and business area'), (6, 'business area')] 0.999682577065 0.0
+==============================
+alice Bot [(1, 'I was in charge of cost price and sales revenue .'), (4, 'Yes , sir .'), (6, 'Did this just come on suddenly ?'), (8, 'Goodbye .'), (10, 'Bye !'), (12, 'Bye .')] 0.999882022479 0.0
+bob Human [(0, 'The last sentence differs from the previous'), (2, 'Hie'), (3, 'Are you hier?'), (5, 'Gut'), (7, 'too sudden/ bye'), (9, 'Bye'), (11, 'Bye yourself')] 0.993663747329 1.0
+==============================
+alice Bot [(0, "what 's the matter ?"), (2, 'what is it ?')] 0.999807950386 0.0
+bob Human [(1, 'Matter is literally energy')] 0.999904877652 1.0
+==============================
+alice Bot [(1, 'A text editor is a program that is run on a computer that can create and change text. I guess, you probably will be interested in "computer bus" or "transmission control protocol".')] 0.999899462644 0.0
+bob Human [(0, 'what is the text about ?')] 0.99992235934 1.0
+==============================
+alice Bot [(1, 'Not Muslims but Islam is the problem.'), (3, 'What do you get when you cross a cow and a lemon?'), (6, 'My friend had full black rainbow on both sides... rip.'), (7, "I'm jealous you went, hope you enjoyed man."), (10, 'Yes sir.'), (11, 'The best war is when you can hate both sides.'), (14, 'I am not capable of thinking, sorry.'), (15, 'I cannot think of a single one, not even intelligence.'), (17, 'We cannot die.'), (19, 'I am just a talking robot. But I like my job.')] 0.999827193169 0.0
+bob Human [(0, 'fucking muslims...'), (2, 'radical islam only, to be honest.'), (4, 'a ginger cow?'), (5, 'not sure)'), (8, 'I appologise. Don\'t understand "full black rainbow on both sides"'), (9, 'smth desiase?'), (12, "So, I don't know islmaic guys problems, but I know, deffinetly, they start conflicts"), (13, "I don't think they are to piecfull negotiations. Even they wouldn't be coordinated enough to chooses a single behaviour line."), (16, "but in an case it's better then discussing shit from our context :)"), (18, u'If you are bot \u2014 I am totally impressed.'), (20, 'Yeah, me too. I think I should go back to  my gpu and continue my training using knowledge from this productive dialog.')] 0.999876938586 1.0
+==============================
+alice Human [(0, 'some part of geography'), (1, "or it's a bomber how-to guide?"), (4, 'blessing to you, brother'), (6, 'do you have one?'), (8, 'too much time for bot to answer. bye')] 0.999931284488 1.0
+bob Bot [(2, 'No choice we can make as a nation lies between our history and our geography.'), (3, 'May love be your guide in every moment of your life.'), (5, 'I always wanted a brother.'), (7, 'I can answer your questions. Ask me anything!')] 0.999952498085 0.0
+==============================
+alice Human [(1, 'Who is noblemen?')] 1.0 1.0
+bob Human [(0, 'avilable'), (2, 'what?')] 0.0 1.0
+==============================
+alice Human [(0, 'Hi'), (2, 'Which town could this be?'), (4, 'Indeed...'), (5, 'And where is Broadway?'), (8, 'I think it is new York.'), (9, 'Do you have any questions for me?')] 0.999957179421 1.0
+bob Bot [(1, 'Hello.'), (3, 'Well... Demolition is a process in which buildings are torn down.'), (6, 'Well, as stated very well above by timv, it works both ways.'), (7, 'I would say: bradford.'), (10, 'I am inspired by New York...'), (11, 'I love questions. Ask me something!')] 0.999905928242 0.0
+==============================
+alice Human [(0, 'Hi'), (2, 'Do you know who the head of state of New Zealand is?'), (4, 'How did you determine that?'), (6, 'Are you pulling statements out of the relevant Wikipedia page?'), (8, 'True')] 0.996829232667 1.0
+bob Bot [(1, 'Hello.'), (3, 'Interesting fact: There is at least one intermediate appellate court.'), (5, "I can't imagine that! Appellate courts nationwide can operate by varying rules."), (7, 'True of false? In some places, the appellate court has limited powers of review.')] 0.998021138832 0.0
+==============================
+alice Human [(0, 'I guess Louis was a good guy!'), (2, 'do you know a lot about him?'), (4, 'Really? Was he married?'), (5, 'Do you know history of that time well?'), (8, 'But a already...'), (10, 'So, I think you are a clever guy and deffinetly not a bot. It was a pleasure to talk to you!'), (12, 'Are you a bot?!'), (13, 'Really?! So, I impressed.'), (16, 'So, we a re done hear. Bye!')] 0.7 1.0
+bob Bot [(1, 'Yes, it was the black guy this time.'), (3, 'I can answer your questions. Ask me anything!'), (6, 'We never really got married.'), (7, "Don't expect me to think for you!"), (9, 'Everything you need you already have.'), (11, "Don't expect me to think for you!"), (14, '*does not compute*'), (15, "Don't expect me to think for you!")] 0.3 0.0
+==============================
+alice Bot [(1, ' Maybe ae or xi will be interesting for you.'), (3, 'Me mah.'), (5, '*does not compute*')] 0.99984786725 0.0
+bob Human [(0, 'hi'), (2, 'who?'), (4, 'are you bot?')] 0.999716776132 1.0
+==============================
+alice Human [(0, 'Do you like telescopes?')] 0.999967356311 1.0
+bob Bot [(1, "I can't imagine that! Ground-based infrared telescopes are affected by Earth's atmosphere.")] 0.999915588669 0.0
+712 errors: 70
+0.895445920304
