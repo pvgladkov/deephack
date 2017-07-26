@@ -11,6 +11,8 @@ import random
 import time
 import pprint
 
+import re
+
 import logging
 import tensorflow as tf
 from model import Model
@@ -150,8 +152,11 @@ class BotApplication(object):
 
 def clean_response(response):
     """ Cleans response from possible shit """
-    if response.startswith("> ") or response.startswith(">") or response.startswith(" > "):
-        response = response.replace(">", "", 1).lstrip()
+
+    response = re.sub(">", " ", response)
+    response = re.sub("\s+", " ", response)
+    response = response.strip()
+
     response.replace(
         "faggot",
         random.choice(["kiddo", "evaluator", "bot", "fag", "dude"])
@@ -160,6 +165,7 @@ def clean_response(response):
         "asshole",
         random.choice(["nyasha", "arsehole", "hacker", "kek"])
     )
+
     return response
 
 
