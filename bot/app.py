@@ -35,17 +35,17 @@ class BotApplication(object):
         self.net = net
         self.g = tf.get_default_graph()
 
-        conv_handler = ConversationHandler(
-            entry_points=[CommandHandler('start', self.start)],
-            states={
-                0: [MessageHandler(Filters.text, self.message, pass_user_data=True)],
-            },
-            fallbacks=[RegexHandler('^Done$', self.message, pass_user_data=True)]
-        )
-        dispatcher.add_handler(conv_handler)
+        start_handler = CommandHandler('start', self.start)
+        end_handler = CommandHandler('end', self.end)
+        text_handler = MessageHandler(Filters.text, self.message)
+
+        dispatcher.add_handler(start_handler)
+        dispatcher.add_handler(text_handler)
+        dispatcher.add_handler(end_handler)
         self.chat_rooms = {}
 
     def message(self, bot, update):
+        #TODO error message for unknown chat id
         with self.g.as_default():
             print(update.message.text)
             chat_app = self.chat_rooms[update.message.chat_id]
@@ -60,7 +60,7 @@ class BotApplication(object):
             msg = "chat_id: {}".format(update.message.chat_id)
             self.response(bot, update, msg)
 
-    def end(self, bot, update, args):
+    def end(self, bot, update):
         self.chat_rooms.pop(update.message.chat_id)
 
     @staticmethod
