@@ -57,4 +57,39 @@ def dialogue_iterator(filename, test=False):
 
 
 def is_bot_dialogue(d):
+    """
+    Detect whether there is a bot among speakers
+    """
     return d.users.Alice == 'Bot' or d.users.Bob == 'Bot'
+
+
+def get_bot_id(d):
+    """
+    Get bot's ID
+
+    Returns None if there are no bots in the dialogue.
+    """
+    if d.users.Alice == 'Bot':
+        return 'Alice'
+    elif d.users.Bob == 'Bot':
+        return 'Bob'
+    else:
+        return None
+
+
+def get_speaker_seq(d, bot_based=False):
+    """
+    Return sequence of speaker IDs
+
+    Set bot_based to get the sequence of human-bot labels.
+    """
+    if bot_based:
+        letters = {'Alice': 'H', 'Bob': 'H'}
+        bot_id = get_bot_id(d)
+        if bot_id is not None:
+            letters[get_bot_id(d)] = 'B'
+    else:
+        letters = {'Alice': 'A', 'Bob': 'B'}
+
+    seq = [letters[th.userId] for th in d.thread]
+    return ''.join(seq)
