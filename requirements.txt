@@ -1,6 +1,8 @@
-sklearn==0.17.1
-numpy==1.13
+sklearn
+numpy
 pandas
 scipy
 spacy
 nltk
+requests
+tensorflow==0.12
