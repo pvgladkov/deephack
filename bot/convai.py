@@ -102,7 +102,7 @@ class BotApplication(object):
             with self.g.as_default():
                 response = app.chatbot(self.net, self.sess, self.chars, self.vocab, text)
                 response = clean_response(response)
-                logger.info("bot response: ".format(response))
+                logger.info("bot response: {}".format(response))
 
             return self.compose_response(chat_id=chat_id, response=response)
 
@@ -157,39 +157,31 @@ def clean_response(response):
     response = re.sub("\s+", " ", response)
     response = response.strip()
 
-    response.replace(
+    response = response.replace(
         "faggot",
         random.choice(["kiddo", "evaluator", "bot", "fag", "dude", "robot", "AI"])
-    )
-    response.replace(
+    ).replace(
         "asshole",
         random.choice(["nyasha", "hacker", "kek", "robot", "AI"])
-    )
-
-    response.replace(
+    ).replace(
         "fuck",
-        random.choice(["kek", "Alisa"])
-    )
-
-    response.replace(
+        "wrong"
+    ).replace(
         "dick",
-        random.choice(["robot", "Elisa"])
-    )
-
-    response.replace(
+        "wrong"
+    ).replace(
         "stupid",
         "smart"
-    )
-
-    response.replace(
+    ).replace(
         "dick",
         "smart"
-    )
-
-    response.replace(
+    ).replace(
         "bitch",
         "smart"
     )
+
+    for w in ["faggot", "asshole", "dick", "bitch"]:
+        assert w not in response
 
     return response
 
