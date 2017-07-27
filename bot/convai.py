@@ -91,7 +91,7 @@ class BotApplication(object):
             else:
                 self.chat_rooms[chat_id] = BotApp(self.net, self.sess)
                 text = text.replace("/start ", "")
-                time.sleep(random.choice(range(5)))
+                time.sleep(random.choice(range(10)))
 
         if text.startswith("/end"):
             self.chat_rooms.pop(chat_id)
@@ -175,7 +175,6 @@ def clean_response(response):
         "dick",
         random.choice(["robot", "Elisa"])
     )
-
 
     return response
 
