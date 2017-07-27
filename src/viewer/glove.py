@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
+import numpy as np
 import os
 import os.path
 import subprocess
@@ -86,3 +87,17 @@ class Glove(object):
                 '-threads', str(num_threads)]
         with open(os.devnull, 'w') as devnull:
             subprocess.run(args, stderr=devnull, check=True)
+
+
+def load_vectors(filename):
+    """
+    Load word vectors by GloVe from the specified file.
+    """
+    word_vec = {}
+    with open(filename) as vec_file:
+        for line in vec_file:
+            word, vec = line.split(None, maxsplit=1)
+            vec = np.array(list(map(float, vec.split())))
+            word_vec[word] = vec
+
+    return word_vec
