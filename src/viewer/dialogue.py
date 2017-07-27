@@ -144,3 +144,18 @@ def concat_phrases(d):
     result.append(Thread(cur_phrase, cur_user, cur_time))
 
     return Dialogue(d.context, d.id, d.evaluation, result, d.users)
+
+
+def dialogue2txt(dialogue_fname, output_fname, content='both', raw=False):
+    """
+    Produce a plain-text file of dialogues from a JSON file.
+    """
+    assert content in ('both', 'dialogue', 'context'), 'incorrect content'
+
+    with open(output_fname, 'w') as output_file:
+        for d in dialogue_iterator(dialogue_fname, raw=raw):
+            if content == 'both' or content == 'context':
+                output_file.write(d.context + '\n')
+            if content == 'both' or content == 'dialogue':
+                for p in d.thread:
+                    output_file.write(p.text + '\n')
