@@ -62,7 +62,6 @@ RUN pip --no-cache-dir install --upgrade ipython && \
 		&& \
 	python -m ipykernel.kernelspec
 
-
 RUN groupadd -r deephack && useradd -r -m -g deephack deephack
 RUN mkdir -p /home/deephack/turing /var/log/deephack && \
     chown deephack:deephack /home/deephack/turing /var/log/deephack

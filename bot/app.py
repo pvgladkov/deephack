@@ -6,7 +6,7 @@ from utils import get_paths
 from bot import BotApp
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, RegexHandler, ConversationHandler)
 
-TOKEN = '266207277:AAFhKUqN_69eNka53ltHP1NT0CJVGXG3xo0'
+TOKEN = '449141014:AAG0fkWNnB-16_T-gJsoGp6PflMqt-iy4xk'
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
