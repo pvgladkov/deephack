@@ -47,6 +47,9 @@ def dialogue_iterator(filename, test=False, raw=False):
             th_list = []
             for i in r['thread']:
                 if not raw:
+                    i['text'] = i['text'].rstrip()
+                    if not i['text']:
+                        continue
                     i['text'] = cu.normalize(i['text'], normalizations)
                     i['text'] = i['text'].lower()
                 th_list.append(Thread(i['text'], i['userId'], i.get('time')))
