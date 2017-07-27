@@ -41,8 +41,7 @@ def dialogue_iterator(filename, test=False, raw=False):
     with open(filename) as input_file:
         for r in json.load(input_file):
             if not raw:
-                r['context'] = cu.normalize(r['context'], normalizations)
-                r['context'] = r['context'].lower()
+                r['context'] = cu.normalize(r['context'])
             # form the thread list
             th_list = []
             for i in r['thread']:
