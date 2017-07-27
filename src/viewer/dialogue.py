@@ -4,32 +4,56 @@
 import json
 import sys
 from collections import namedtuple
+from cucco import Cucco
 
 assert sys.version_info >= (3, 6), 'Python 3.6 or higher required'
 
 
-def dialogue_iterator(filename, test=False):
+Dialogue = namedtuple('Dialogue', ['context', 'id', 'evaluation', 'thread',
+                                   'users'])
+Evaluation = namedtuple('Evaluation', ['Alice', 'Bob'])
+Thread = namedtuple('Thread', ['text', 'userId', 'time'])
+User = namedtuple('User', ['Alice', 'Bob'])
+
+
+def dialogue_iterator(filename, test=False, raw=False):
     """
     Iterate dialogues in the specified file.
+
+    One may specify whether to read a test dataset (without evaluation scores
+    and user types) and to return raw dialogue phrases (without
+    postprocessing).
     """
-    Dialogue = namedtuple('Dialogue', ['context', 'id', 'evaluation', 'thread',
-                                       'users'])
-    Evaluation = namedtuple('Evaluation', ['Alice', 'Bob'])
-    Thread = namedtuple('Thread', ['text', 'userId', 'time'])
-    User = namedtuple('User', ['Alice', 'Bob'])
+
+    cu = Cucco()
+    normalizations = [
+        'remove_accent_marks',
+        ('replace_emojis', {'replacement': ' '}),
+        ('replace_hyphens', {'replacement': ''}),
+        ('replace_punctuation', {'replacement': ''}),
+        ('replace_urls', {'replacement': ' '}),
+        'remove_extra_whitespaces'
+    ]
 
     with open(filename) as input_file:
         for r in json.load(input_file):
+            if not raw:
+                r['context'] = cu.normalize(r['context'])
             # form the thread list
             th_list = []
             for i in r['thread']:
+                if not raw:
+                    i['text'] = i['text'].rstrip()
+                    if not i['text']:
+                        continue
+                    i['text'] = cu.normalize(i['text'], normalizations)
+                    i['text'] = i['text'].lower()
                 th_list.append(Thread(i['text'], i['userId'], i.get('time')))
 
             # if we're dealing with the test dataset, do not return user types
             # and evaluation scores
             if test:
-                yield Dialogue(r['context'], r['dialogId'], None, th_list,
-                               None)
+                d = Dialogue(r['context'], r['dialogId'], None, th_list, None)
             else:
                 # form the evaluation dictionary
                 ev_dict = {}
@@ -53,7 +77,7 @@ def dialogue_iterator(filename, test=False):
                              Evaluation(ev_dict['Alice'], ev_dict['Bob']),
                              th_list,
                              User(us_dict['Alice'], us_dict['Bob']))
-                yield d
+            yield concat_phrases(d)
 
 
 def is_bot_dialogue(d):
@@ -93,3 +117,45 @@ def get_speaker_seq(d, bot_based=False):
 
     seq = [letters[th.userId] for th in d.thread]
     return ''.join(seq)
+
+
+def concat_phrases(d):
+    """
+    Concatenate consecutive phrases from the same speaker.abs
+    """
+    if len(d.thread) < 2:
+        return d
+
+    result = []
+    cur_phrase = d.thread[0].text
+    cur_user = d.thread[0].userId
+    cur_time = d.thread[0].time
+
+    for p in d.thread[1:]:
+        if p.userId == cur_user:
+            cur_phrase = cur_phrase + ' ' + p.text
+        else:
+            result.append(Thread(cur_phrase, cur_user, cur_time))
+            cur_phrase = p.text
+            cur_user = p.userId
+        cur_time = p.time
+
+    # process the last phrase
+    result.append(Thread(cur_phrase, cur_user, cur_time))
+
+    return Dialogue(d.context, d.id, d.evaluation, result, d.users)
+
+
+def dialogue2txt(dialogue_fname, output_fname, content='both', raw=False):
+    """
+    Produce a plain-text file of dialogues from a JSON file.
+    """
+    assert content in ('both', 'dialogue', 'context'), 'incorrect content'
+
+    with open(output_fname, 'w') as output_file:
+        for d in dialogue_iterator(dialogue_fname, raw=raw):
+            if content == 'both' or content == 'context':
+                output_file.write(d.context + '\n')
+            if content == 'both' or content == 'dialogue':
+                for p in d.thread:
+                    output_file.write(p.text + '\n')
