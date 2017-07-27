@@ -6,8 +6,18 @@ import os
 import os.path
 import subprocess
 import sys
+from tempfile import NamedTemporaryFile
 
 assert sys.version_info >= (3, 6), 'Python 3.6 or higher required'
+
+
+def get_temp_fname():
+    """
+    Get a name of a temporary file.
+    """
+    tfile = NamedTemporaryFile(delete=False)
+    tfile.close()
+    return tfile.name
 
 
 class Glove(object):
@@ -87,6 +97,57 @@ class Glove(object):
                 '-threads', str(num_threads)]
         with open(os.devnull, 'w') as devnull:
             subprocess.run(args, stderr=devnull, check=True)
+
+    def auto_glove(self, corpus_fname, output_fname, glove_options={}):
+        """
+        Launch consecutive GloVe stages using temporary files for keeping
+        intermediate data.
+
+        Options are passed via dictionary `glove_options` with the following
+        keys: `min_occur` (default: 1), 'vec_size` (default: 50), `symmetric`
+        (default: 0), `window_size` (default: 5), `num_iter` (default: 1000),
+        `xmax` (default: 100), `eta` (default: 0.05)
+        """
+        # specify default values for missing options
+        default_values = {'min_occur': 1,
+                          'vec_size': 50,
+                          'symmetric': 0,
+                          'window_size': 5,
+                          'num_iter': 1000,
+                          'xmax': 100,
+                          'eta': 0.05}
+        for k, v in default_values.items():
+            if k not in glove_options:
+                glove_options[k] = v
+
+        temp_vocab = get_temp_fname()
+        temp_occur = get_temp_fname()
+        temp_shuffled = get_temp_fname()
+
+        try:
+            # step 1: create the vocabulary counts file
+            self.vocab_count(corpus_fname, temp_vocab,
+                             glove_options['min_occur'],
+                             10000)
+
+            # step 2: create the word-word occurrence file
+            self.cooccur(corpus_fname, temp_vocab, temp_occur,
+                         glove_options['symmetric'],
+                         glove_options['window_size'])
+
+            # step 3: shuffle the occurrences
+            self.shuffle(temp_occur, temp_shuffled)
+
+            # step 4: produce GloVe vectors
+            output_prefix = os.path.splitext(output_fname)[0]
+            self.glove(temp_occur, temp_vocab, output_prefix + '_vec',
+                       output_prefix + '_grad', glove_options['vec_size'],
+                       0.75, glove_options['xmax'], glove_options['eta'],
+                       glove_options['num_iter'])
+        finally:
+            for fname in (temp_vocab, temp_occur, temp_shuffled):
+                if os.path.isfile(fname):
+                    os.unlink(fname)
 
 
 def load_vectors(filename):
