@@ -159,12 +159,23 @@ def clean_response(response):
 
     response.replace(
         "faggot",
-        random.choice(["kiddo", "evaluator", "bot", "fag", "dude"])
+        random.choice(["kiddo", "evaluator", "bot", "fag", "dude", "robot", "AI"])
     )
     response.replace(
         "asshole",
-        random.choice(["nyasha", "arsehole", "hacker", "kek"])
+        random.choice(["nyasha", "arsehole", "hacker", "kek", "robot", "AI"])
     )
+
+    response.replace(
+        "fuck",
+        random.choice(["kek", "Alisa"])
+    )
+
+    response.replace(
+        "dick",
+        random.choice(["robot", "Elisa"])
+    )
+
 
     return response
 
