@@ -163,7 +163,7 @@ def clean_response(response):
     )
     response.replace(
         "asshole",
-        random.choice(["nyasha", "arsehole", "hacker", "kek", "robot", "AI"])
+        random.choice(["nyasha", "hacker", "kek", "robot", "AI"])
     )
 
     response.replace(
@@ -174,6 +174,21 @@ def clean_response(response):
     response.replace(
         "dick",
         random.choice(["robot", "Elisa"])
+    )
+
+    response.replace(
+        "stupid",
+        "smart"
+    )
+
+    response.replace(
+        "dick",
+        "smart"
+    )
+
+    response.replace(
+        "bitch",
+        "smart"
     )
 
     return response
