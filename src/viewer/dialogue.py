@@ -2,15 +2,21 @@
 # -*- coding: utf8 -*-
 
 import json
+import string
 import sys
 from collections import namedtuple
+from cucco import Cucco
 
 assert sys.version_info >= (3, 6), 'Python 3.6 or higher required'
 
 
-def dialogue_iterator(filename, test=False):
+def dialogue_iterator(filename, test=False, raw=False):
     """
     Iterate dialogues in the specified file.
+
+    One may specify whether to read a test dataset (without evaluation scores
+    and user types) and to return raw dialogue phrases (without
+    postprocessing).
     """
     Dialogue = namedtuple('Dialogue', ['context', 'id', 'evaluation', 'thread',
                                        'users'])
@@ -18,11 +24,29 @@ def dialogue_iterator(filename, test=False):
     Thread = namedtuple('Thread', ['text', 'userId', 'time'])
     User = namedtuple('User', ['Alice', 'Bob'])
 
+    cu = Cucco()
+    normalizations = [
+        'remove_accent_marks',
+        ('replace_emojis', {'replacement': ' '}),
+        ('replace_hyphens', {'replacement': ''}),
+        ('replace_punctuation', {'replacement': ''}),
+        ('replace_characters', {'characters': set(string.digits),
+                                'replacement': ''}),
+        ('replace_urls', {'replacement': ' '}),
+        'remove_extra_whitespaces'
+    ]
+
     with open(filename) as input_file:
         for r in json.load(input_file):
+            if not raw:
+                r['context'] = cu.normalize(r['context'], normalizations)
+                r['context'] = r['context'].lower()
             # form the thread list
             th_list = []
             for i in r['thread']:
+                if not raw:
+                    i['text'] = cu.normalize(i['text'], normalizations)
+                    i['text'] = i['text'].lower()
                 th_list.append(Thread(i['text'], i['userId'], i.get('time')))
 
             # if we're dealing with the test dataset, do not return user types
