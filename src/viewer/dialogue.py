@@ -2,7 +2,6 @@
 # -*- coding: utf8 -*-
 
 import json
-import string
 import sys
 from collections import namedtuple
 from cucco import Cucco
@@ -32,8 +31,6 @@ def dialogue_iterator(filename, test=False, raw=False):
         ('replace_emojis', {'replacement': ' '}),
         ('replace_hyphens', {'replacement': ''}),
         ('replace_punctuation', {'replacement': ''}),
-        ('replace_characters', {'characters': set(string.digits),
-                                'replacement': ''}),
         ('replace_urls', {'replacement': ' '}),
         'remove_extra_whitespaces'
     ]
