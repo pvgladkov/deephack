@@ -40,10 +40,13 @@ class DialogTest(object):
 if __name__ == '__main__':
       
     test_file = "datasets/turing-data/test_20170727.json"
+    refineable_file = "datasets/answers.d4.txt"
+    submit_file = "submit_v2.csv"
+
     with open(test_file) as fh:
         data = [DialogTest(x) for x in simplejson.load(fh)]
 
-    with open("datasets/answers.d4.txt") as fh:
+    with open(refineable_file) as fh:
         M = {}
         for line in fh:
             d = line.strip().split(",")
@@ -53,6 +56,12 @@ if __name__ == '__main__':
         data[i].bob_q = round(M[d.id][1],3)
 
     for i, d in enumerate(data):
+
+        if d.alice_q < 0:
+            d.alice_q = 0.0
+        if d.bob_q < 0:
+            d.bob_q = 0.0
+
         if d.alices and d.alices[0][1].startswith("wtf"):
             d.alice_q = max(d.alice_q, 1.0)
             d.bob_q = 0.0
@@ -68,14 +77,7 @@ if __name__ == '__main__':
             d.bob_q = 1.0
             continue
 
-        if d.alice_q < 1 and d.bob_q < 1:
-            if d.alice_q < d.bob_q:
-                d.alice_q = 0.0
-                d.bob_q = 1.0
-            else:
-                d.alice_q = 1.0
-                d.bob_q = 0.0
-            continue
+        
 
         if len(d.alices) > 0 and len(d.bobs) == 0:
             if d.alices[0][1].startswith(" "):
@@ -131,7 +133,35 @@ if __name__ == '__main__':
                 d.alice_q = 0.0
                 break
 
-    with open("submit.csv", "w") as fh:
+        if d.alice_q < 1 and d.bob_q < 1:
+            if d.alice_q < d.bob_q:
+                d.alice_q = 0.0
+                d.bob_q = 1.0
+            else:
+                d.alice_q = 1.0
+                d.bob_q = 0.0
+            continue
+
+        if d.alice_q == 0 and d.bob_q < 1:
+            d.bob_q = 0
+        if d.alice_q < 1 and d.bob_q == 0:
+            d.alice_q = 0
+
+        
+    
+    ### adjust to more positive score
+    addjastment = 0.75
+    max_possible = 4.0
+    for i, d in enumerate(data):
+        if d.alice_q > 1 and d.alice_q < max_possible:
+            d.alice_q = min(max_possible, d.alice_q+addjastment)
+        if d.bob_q > 1 and d.bob_q < max_possible:
+            d.bob_q = min(max_possible, d.bob_q+addjastment)
+
+
+
+
+    with open(submit_file, "w") as fh:
         for i, d in enumerate(data):
             fh.write("%s,%s,%s\n" % (d.id, d.alice_q, d.bob_q))
 
