@@ -40,6 +40,7 @@ class DialogTest(object):
 
 
 
+
 def refine(refineable_file, submit_file, test_files):
     data = []
     for test_file in test_files:

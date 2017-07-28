@@ -47,7 +47,6 @@ def refine(refineable_file, submit_file, test_files):
     our_zero = -10000
     our_one = -380
     
-
     data = []
     for test_file in test_files:
         with open(test_file) as fh:
