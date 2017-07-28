@@ -11,7 +11,7 @@ out=$2
 python -m turing.submit.flatten -d $dialogs -o df.csv -t sentences
 
 echo "logprob,ppl" > ppl_scores
-$SRILM/bin/macosx/ngram -lm $NGRAM_MODEL -ppl sentences -debug 1 | fgrep logprob | awk '{print $4,$6}' | tr ' ' ',' >> ppl_scores
+$SRILM -lm $NGRAM_MODEL -ppl sentences -debug 1 | fgrep logprob | awk '{print $4,$6}' | tr ' ' ',' >> ppl_scores
 lines=`wc -l ppl_scores | awk '{print $1}'`
 lines=$(( $lines - 1 ))
 
