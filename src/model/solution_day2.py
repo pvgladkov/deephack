@@ -139,7 +139,7 @@ def value(x,y):
 
 if __name__ == '__main__':
     
-    file_name = "train4.json"
+    file_name = "datasets/train_day2.json"
 
     bots = get_bots(file_name)
 
@@ -233,66 +233,6 @@ if __name__ == '__main__':
                 "product": str(y_true[-1]),
                 "consumer_complaint_narrative": bob_txt
             })
-
-
-        # if alice_txt.strip() == "":
-        #     y_pred[-2] = value(y_pred[-2], 1)
-        # if bob_txt.strip() == "":
-        #     y_pred[-1] = value(y_pred[-1], 1)
-        # if alice_txt.strip() == "" and bob_txt.strip() == "":
-        #     y_pred[-1] = value(y_pred[-1], 1)
-        #     y_pred[-2] = value(y_pred[-2], 1)
-
-        # if alice_txt.strip() == "" and isinstance(bob_txt, unicode):
-        #     y_pred[-1] = 1.0
-        #     y_pred[-2] = 0.0
-        # if bob_txt.strip() == "" and isinstance(alice_txt, unicode):
-        #     y_pred[-1] = 0.0
-        #     y_pred[-2] = 1.0            
-
-        # if len([x[1] for x in alice]) > len(set([x[1] for x in alice])):
-        #     y_pred[-2] = value(y_pred[-2], 1)
-        #     y_pred[-1] = value(y_pred[-1], 1)
-        # if len([x[1] for x in bob]) > len(set([x[1] for x in bob])):
-        #     y_pred[-2] = value(y_pred[-2], 1)
-        #     y_pred[-1] = value(y_pred[-1], 1)
-
-        # if len([x[1] for x in bob]) > len(set([x[1] for x in bob])) and len([x[1] for x in alice]) > len(set([x[1] for x in alice])):
-        #     y_pred[-2] = value(y_pred[-2], 3)
-        #     y_pred[-1] = value(y_pred[-1], 3)
-
-        # if (0, "avilable") in bob:
-        #     y_pred[-1] = value(y_pred[-1], 1)
-        # if (0, "avilable") in alice:
-        #     y_pred[-2] = value(y_pred[-2], 1)    
-
-        # if "Hint: first" in alice_txt:
-        #     y_pred[-1] = value(y_pred[-1], 1)
-        #     y_pred[-2] = value(y_pred[-2], 1)                
-        # if "Hint: first" in bob_txt:
-        #     y_pred[-1] = value(y_pred[-1], 1)
-        #     y_pred[-2] = value(y_pred[-2], 1)                
-
-        # if " ." in alice_txt or " ," in alice_txt:
-        #     y_pred[-1] = 1.0
-        #     y_pred[-2] = 0.0
-        # if " ." in bob_txt or " ," in bob_txt:
-        #     y_pred[-1] = 0.0
-        #     y_pred[-2] = 1.0  
-
-
-        # if "\n" in alice_txt:
-        #     y_pred[-1] = 1.0
-        #     y_pred[-2] = 0.0
-        # if "\n" in bob_txt:
-        #     y_pred[-1] = 0.0
-        #     y_pred[-2] = 1.0  
-
-
-        # if users["bob"] == 1 and users["alice"] == 1:
-        #     print "=============="
-        #     print alice_txt
-        #     print bob_txt
 
         if y_true[-2] != y_pred[-2]:
             print did, y_true[-2], y_pred[-2], true_bots[-2], bots[len(y_true)-2]
