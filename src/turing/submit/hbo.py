@@ -17,9 +17,9 @@ def reg_to_binary(df):
 
 
 def to_order(df, bst):
-    features = df.drop(["label", "dialogId_x", "dialogId_y", "user_x", "user_y"], axis=1)
+    features = df.drop([ "dialogId_x", "dialogId_y", "user_x", "user_y"], axis=1)
     dtest = xgb.DMatrix(features.values, feature_names=features.columns)
-    df["predict"] = bst.predict(dtest)
+    df["prediction"] = bst.predict(dtest)
 
     counter = Counter()
 
@@ -48,7 +48,7 @@ if __name__ == '__main__':
     bst = xgb.Booster()
     bst.load_model(args.model)
 
-    df = pd.DataFrame.from_csv(args.featues).reset_index()
+    df = pd.DataFrame.from_csv(args.features).reset_index()
 
     order = to_order(reg_to_binary(df), bst)
     res = order_to_scores(order)

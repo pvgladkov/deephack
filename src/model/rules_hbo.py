@@ -5,6 +5,7 @@
 #@contact: ad3002@gmail.com 
 
 import simplejson
+import argparse
 
 class DialogTest(object):
 
@@ -37,11 +38,7 @@ class DialogTest(object):
         return ""
 
 
-if __name__ == '__main__':
-      
-    test_file = "datasets/turing-data/test_20170727.json"
-    refineable_file = "submit_q_minus.csv"
-    submit_file = "hbo_v2.csv"
+def refine(refineable_file, submit_file, test_file):
 
     with open(test_file) as fh:
         data = [DialogTest(x) for x in simplejson.load(fh)]
@@ -159,6 +156,15 @@ if __name__ == '__main__':
         for i, d in enumerate(data):
             fh.write("%s,%s,%s\n" % (d.id, d.alice_q, d.bob_q))
 
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--dialogs', type=str, required=True)
+    parser.add_argument('-i', '--input', type=str, required=True)
+    parser.add_argument('-o', '--output', type=str, required=True)
+    args = parser.parse_args()
+
+    refine(args.input, args.output, args.dialogs)
 
 
 

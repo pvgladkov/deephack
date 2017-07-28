@@ -128,12 +128,14 @@ def freq_stat(diag, user):
         no_vocab_tokens(x) for x in other_thread
     ])
 
-    res["self_avg_index_lemma"] = np.mean([
-        avg_index_lemma(x) for x in self_thread
-    ])
-    res["other_avg_index_lemma"] = np.mean([
-        avg_index_lemma(x) for x in other_thread
-    ])
+    avg_idx_self = filter(lambda x: x, [avg_index_lemma(x) for x in self_thread])
+    avg_idx_other = filter(lambda x: x, [avg_index_lemma(x) for x in other_thread])
+
+    if avg_idx_self:
+        res["self_avg_index_lemma"] = np.mean(avg_idx_self)
+
+    if avg_idx_other:
+        res["other_avg_index_lemma"] = np.mean(avg_idx_other)
 
     return res
 
@@ -167,7 +169,7 @@ if __name__ == '__main__':
     parser.add_argument('-o', '--output', type=str, required=True)
     args = parser.parse_args()
 
-    diags = json.load(open(args.dialogs))
+    diags = json.load(open(args.input))
     ppl_df = pd.DataFrame.from_csv(args.ppl).reset_index()
 
     all_features = make_features(diags, ppl_df)
