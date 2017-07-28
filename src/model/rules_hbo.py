@@ -37,26 +37,18 @@ class DialogTest(object):
         return ""
 
 
-if __name__ == '__main__':
-
-    data_files = [
-        # 'datasets/turing-data/test_20170724.json',
-        # 'datasets/turing-data/test_20170725.json',
-        # 'datasets/turing-data/test_20170726.json',
-        'datasets/turing-data/test_20170727.json',
-    ]
+def refine(refineable_file, submit_file, test_files):
+    data = []
+    for test_file in test_files:
+        with open(test_file) as fh:
+            data += [DialogTest(x) for x in simplejson.load(fh)]
+    
 
     our_zero = -10000
 
-      
-    # test_file = "datasets/turing-data/test_20170727.json"
-    refineable_file = "submit_q_minus.csv"
-    # refineable_file = "lesha_submit.csv"
-    submit_file = "hbo_v2.csv"
-    # submit_file = "all.csv"
 
     data = []
-    for test_file in data_files:
+    for test_file in test_files:
         with open(test_file) as fh:
             data += [DialogTest(x) for x in simplejson.load(fh)]
 
@@ -112,26 +104,6 @@ if __name__ == '__main__':
             d.alice_q = our_zero
             continue
 
-        # if d.bobs[0][1].startswith(" "):
-        #     d.alice_q = max(d.alice_q, -380)
-        #     d.bob_q = -1000
-        #     continue
-
-        # else:
-        #     d.alice_q = -380
-        #     d.bob_q = -1000
-        # continue
-
-        # if len(d.alices) == -1000 and len(d.bobs) > -1000:
-        #     if d.bobs[0][1].startswith(" "):
-        #         d.alice_q = -1000
-        #         d.bob_q = -380
-        #     else:
-        #         d.alice_q = -380
-        #         d.bob_q = -1000
-        #     continue
-
-        
 
         bot_marksers = [
             "Interesting fact",
@@ -161,38 +133,38 @@ if __name__ == '__main__':
                 d.alice_q = our_zero
                 break
 
-        # if d.alice_q < -380 and d.bob_q < -380:
-        #     if d.alice_q < d.bob_q:
-        #         d.alice_q = -1000
-        #         d.bob_q = -380
-        #     else:
-        #         d.alice_q = -380
-        #         d.bob_q = -1000
-        #     continue
-
-        # if d.alice_q == -1000 and d.bob_q < -380:
-        #     d.bob_q = -1000
-        # if d.alice_q < -380 and d.bob_q == -1000:
-        #     d.alice_q = -1000
-
-        # if len(d.alices) == -1000 and len(d.bobs) == -1000:
-        #     d.alice_q = -1000
-        #     d.bob_q = -380
-        
-    
-    # for i, d in enumerate(data):
-        
-    #     if d.alice_q > 1:
-    #         d.alice_q = min(4.0, d.alice_q+0.75)
-    #     if d.bob_q > 1:
-    #         d.bob_q = min(4.0, d.bob_q+0.75)
-
-
-
 
     with open(submit_file, "w") as fh:
         for i, d in enumerate(data):
             fh.write("%s,%s,%s\n" % (d.id, d.alice_q, d.bob_q))
+
+
+if __name__ == '__main__':
+
+
+    test_files = [
+        # 'datasets/turing-data/test_20170724.json',
+        # 'datasets/turing-data/test_20170725.json',
+        # 'datasets/turing-data/test_20170726.json',
+        'datasets/turing-data/test_20170727.json',
+    ]
+
+    refineable_file = "submit_q_minus.csv"
+    # refineable_file = "all_hbo.csv"
+    # refineable_file = "lesha_submit.csv"
+    # submit_file = "all_hbo_refined.csv"
+    submit_file = "all.csv"
+    submit_file = "hbo_v2.csv"
+
+    refine(refineable_file, submit_file, test_files)
+
+
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument('-d', '--dialogs', type=str, required=True)
+    # parser.add_argument('-i', '--input', type=str, required=True)
+    # parser.add_argument('-o', '--output', type=str, required=True)
+    # args = parser.parse_args()
+    # refine(args.input, args.output, [args.dialogs])
 
 
 
