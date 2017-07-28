@@ -90,7 +90,13 @@ RUN cd /home/deephack/turing/srilm-1.7.2 && \
 
 ENV SRILM=/home/deephack/turing/srilm-1.7.2/bin/i686-m64/ngram
 ENV NGRAM_MODEL=/home/deephack/turing/europarl.en.srilm
+ENV HOME_DIR=/home/deephack/turing/
+ENV SRC_DIR=/home/deephack/turing/src/
+ENV MODEL_PATH=/home/deephack/turing/2.model
+
+
 
 RUN python -c "import nltk; nltk.download('brown')"
 RUN python -m spacy download en
 
+RUN pip install simplejson
