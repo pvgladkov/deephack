@@ -71,8 +71,26 @@ RUN pip install --upgrade pip
 COPY requirements.txt /home/deephack/
 RUN pip install -r /home/deephack/requirements.txt
 
+WORKDIR /home/deephack/turing
+
+RUN git clone --recursive https://github.com/dmlc/xgboost xgboost
+RUN cd xgboost; make -j4
+
+RUN cd xgboost/python-package && python setup.py install
 
 COPY ./ /home/deephack/turing/
 
-WORKDIR /home/deephack/turing
+RUN export PYTHONPATH=$PYTHONPATH:/home/deephack/turing/xgboost/python-package:/home/deephack/turing/src/
+
+RUN mkdir /home/deephack/turing/srilm-1.7.2 && \
+	tar -xvf srilm-1.7.2.tar.gz --directory /home/deephack/turing/srilm-1.7.2
+RUN cd /home/deephack/turing/srilm-1.7.2 && \
+ 	sed -i -- 's/# SRILM = \/home\/speech\/stolcke\/project\/srilm\/devel/SRILM = \/home\/deephack\/turing\/srilm-1.7.2/g' Makefile && \
+ 	make World
+
+ENV SRILM=/home/deephack/turing/srilm-1.7.2/bin/i686-m64/ngram
+ENV NGRAM_MODEL=/home/deephack/turing/europarl.en.srilm
+
+RUN python -c "import nltk; nltk.download('brown')"
+RUN python -m spacy download en
 
