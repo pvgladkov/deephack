@@ -40,6 +40,7 @@ class DialogTest(object):
 
 
 
+
 def refine(refineable_file, submit_file, test_files):
     data = []
     for test_file in test_files:
@@ -56,6 +57,8 @@ def refine(refineable_file, submit_file, test_files):
             d = line.strip().split(",")
             M[int(d[0])] = (float(d[1]),float(d[2]))
     for i, d in enumerate(data):
+        if not d.id in M:
+            raise Exception("Wrong test dataset: %s" % ",".join(test_files))
         data[i].alice_q = round(M[d.id][0],3)
         data[i].bob_q = round(M[d.id][1],3)
 
@@ -180,8 +183,6 @@ def refine(refineable_file, submit_file, test_files):
     with open(submit_file, "w") as fh:
         for i, d in enumerate(data):
             fh.write("%s,%s,%s\n" % (d.id, d.alice_q, d.bob_q))
-
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

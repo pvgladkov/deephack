@@ -55,4 +55,4 @@ if __name__ == '__main__':
     mg = pd.merge(res, df, on=["dialogId", "user"])
 
     submit = df_to_submit(mg)
-    submit.to_csv(args.output)
+    submit.to_csv(args.output, header=False, index=False)
