@@ -23,8 +23,8 @@ def to_order(df, bst):
 
     counter = Counter()
 
-    for i, row in df.iterrows():
-        counter[(row["dialogId_x"], row["user_x"])] += row["prediction"]
+    for gr in df.groupby(by=["dialogId_x","user_x"]):
+        counter[gr[0]] += sum(gr[1]["prediction"])
 
     return [x[0] for x in counter.most_common(len(counter))]
 
@@ -49,8 +49,9 @@ if __name__ == '__main__':
     bst.load_model(args.model)
 
     df = pd.DataFrame.from_csv(args.features).reset_index()
+    bin_df = reg_to_binary(df)
 
-    order = to_order(reg_to_binary(df), bst)
+    order = to_order(bin_df, bst)
     res = order_to_scores(order)
     mg = pd.merge(res, df, on=["dialogId", "user"])
 
