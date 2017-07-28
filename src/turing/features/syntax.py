@@ -4,7 +4,7 @@ from turing.features.common import desctiptive_stats, basestat_series
 from collections import Counter
 import json
 
-DEPS_OPTIONS = json.load(open("data/deps_list.json", "r"))
+# DEPS_OPTIONS = json.load(open("data/deps_list.json", "r"))
 
 def _find_root(sentence):
     for token in sentence:
