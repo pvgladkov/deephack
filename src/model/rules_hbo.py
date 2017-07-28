@@ -140,31 +140,14 @@ def refine(refineable_file, submit_file, test_files):
 
 
 if __name__ == '__main__':
+    import argparse
 
-
-    test_files = [
-        # 'datasets/turing-data/test_20170724.json',
-        # 'datasets/turing-data/test_20170725.json',
-        # 'datasets/turing-data/test_20170726.json',
-        'datasets/turing-data/test_20170727.json',
-    ]
-
-    refineable_file = "submit_q_minus.csv"
-    # refineable_file = "all_hbo.csv"
-    # refineable_file = "lesha_submit.csv"
-    # submit_file = "all_hbo_refined.csv"
-    submit_file = "all.csv"
-    submit_file = "hbo_v2.csv"
-
-    refine(refineable_file, submit_file, test_files)
-
-
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-d', '--dialogs', type=str, required=True)
-    # parser.add_argument('-i', '--input', type=str, required=True)
-    # parser.add_argument('-o', '--output', type=str, required=True)
-    # args = parser.parse_args()
-    # refine(args.input, args.output, [args.dialogs])
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--dialogs', type=str, required=True)
+    parser.add_argument('-i', '--input', type=str, required=True)
+    parser.add_argument('-o', '--output', type=str, required=True)
+    args = parser.parse_args()
+    refine(args.input, args.output, [args.dialogs])
 
 
 
