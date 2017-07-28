@@ -2,13 +2,6 @@ set -e
 set -o pipefail
 set -u
 
-export NGRAM_MODEL="/Users/ffuuugor/IdeaProjects/deephack/europarl.en.srilm"
-export SRILM="/Users/ffuuugor/IdeaProjects/deephack_mine/srilm-1.7.2"
-
-export HOME_DIR="/Users/ffuuugor/IdeaProjects/deephack/"
-export SRC_DIR="$HOME_DIR/src/"
-export MODEL_PATH="$HOME_DIR/model.bin"
-
 export PYTHONPATH=$SRC_DIR
 export LC_ALL="en_US.UTF-8"
 

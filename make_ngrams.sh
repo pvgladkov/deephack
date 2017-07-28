@@ -2,9 +2,6 @@ set -u
 set -o pipefail
 set -e
 
-export NGRAM_MODEL="/Users/ffuuugor/IdeaProjects/deephack/europarl.en.srilm"
-export SRILM="/Users/ffuuugor/IdeaProjects/deephack_mine/srilm-1.7.2"
-
 dialogs=$1
 out=$2
 
