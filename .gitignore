@@ -6,3 +6,4 @@ data/
 *.pyc
 .ipynb_checkpoints
 .jupyter
+srilm*
