@@ -37,18 +37,21 @@ class DialogTest(object):
         return ""
 
 
-if __name__ == '__main__':
-      
-    test_file = "datasets/turing-data/test_20170727.json"
-    refineable_file = "datasets/answers.d4.txt"
-    submit_file = "submit_v2.csv"
 
-    with open(test_file) as fh:
-        data = [DialogTest(x) for x in simplejson.load(fh)]
+
+def refine(refineable_file, submit_file, test_files):
+    data = []
+    for test_file in test_files:
+        with open(test_file) as fh:
+            data += [DialogTest(x) for x in simplejson.load(fh)]
 
     with open(refineable_file) as fh:
         M = {}
         for line in fh:
+            if line.startswith("dialogId"):
+                continue
+            if line.startswith("#"):
+                continue
             d = line.strip().split(",")
             M[int(d[0])] = (float(d[1]),float(d[2]))
     for i, d in enumerate(data):
@@ -76,8 +79,6 @@ if __name__ == '__main__':
             d.alice_q = 0.0
             d.bob_q = 1.0
             continue
-
-        
 
         if len(d.alices) > 0 and len(d.bobs) == 0:
             if d.alices[0][1].startswith(" "):
@@ -113,10 +114,15 @@ if __name__ == '__main__':
             "Interesting fact",
             "Answer, amaze and amuse.",
             "I can answer your questions. Ask me anything!",
-            "\n",
+            # "\n",
             " .",
-            " ,",
-            " \'",
+            # " ?",
+            # " ,",
+            # " \'",
+            "/end",
+            "/start",
+            "<",
+            " 's",
             "Talking is the best.",
             "I will ask you a question in a second, please wait.",
             "Congressional",
@@ -133,8 +139,10 @@ if __name__ == '__main__':
                 d.alice_q = 0.0
                 break
 
+
+    for i, d in enumerate(data):
         if d.alice_q < 1 and d.bob_q < 1:
-            if d.alice_q < d.bob_q:
+            if d.alice_q <= d.bob_q:
                 d.alice_q = 0.0
                 d.bob_q = 1.0
             else:
@@ -142,28 +150,51 @@ if __name__ == '__main__':
                 d.bob_q = 0.0
             continue
 
-        if d.alice_q == 0 and d.bob_q < 1:
-            d.bob_q = 0
-        if d.alice_q < 1 and d.bob_q == 0:
-            d.alice_q = 0
 
-        
-    
     ### adjust to more positive score
-    addjastment = 0.75
-    max_possible = 4.0
+    
     for i, d in enumerate(data):
+    
+        addjastment = 0.4
+        max_possible = 4.0
+        if len(d.alices) > 10:
+            addjastment = 0.8
+        elif len(d.alices) > 30:
+            max_possible = 5.0
+            addjastment = 1.2
         if d.alice_q > 1 and d.alice_q < max_possible:
             d.alice_q = min(max_possible, d.alice_q+addjastment)
+
+        addjastment = 0.4
+        max_possible = 4.0
+        if len(d.bobs) > 10:
+            addjastment = 0.8
+        elif len(d.bobs) > 30:
+            max_possible = 5.0
+            addjastment = 1.2
         if d.bob_q > 1 and d.bob_q < max_possible:
             d.bob_q = min(max_possible, d.bob_q+addjastment)
-
-
 
 
     with open(submit_file, "w") as fh:
         for i, d in enumerate(data):
             fh.write("%s,%s,%s\n" % (d.id, d.alice_q, d.bob_q))
+
+
+
+if __name__ == '__main__':
+    
+    test_files = [
+        'datasets/turing-data/test_20170724.json',
+        'datasets/turing-data/test_20170725.json',
+        'datasets/turing-data/test_20170726.json',
+        'datasets/turing-data/test_20170727.json',
+    ]
+    refineable_file = "lesha_submit.csv"
+    submit_file = "all.csv"
+
+    refine(refineable_file, submit_file, test_files)
+
 
 
 
